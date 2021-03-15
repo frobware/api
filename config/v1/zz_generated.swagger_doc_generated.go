@@ -725,6 +725,7 @@ var map_AWSPlatformStatus = map[string]string{
 	"":                 "AWSPlatformStatus holds the current status of the Amazon Web Services infrastructure provider.",
 	"region":           "region holds the default AWS region for new AWS resources created by the cluster.",
 	"serviceEndpoints": "ServiceEndpoints list contains custom endpoints which will override default service endpoint of AWS Services. There must be only one ServiceEndpoint for a service.",
+	"userTags":         "userTags is a list of additional tags to apply to AWS resources created for the cluster.",
 }
 
 func (AWSPlatformStatus) SwaggerDoc() map[string]string {
@@ -739,6 +740,16 @@ var map_AWSServiceEndpoint = map[string]string{
 
 func (AWSServiceEndpoint) SwaggerDoc() map[string]string {
 	return map_AWSServiceEndpoint
+}
+
+var map_AWSUserTag = map[string]string{
+	"":      "AWSUserTag is a tag to apply to AWS resources created for the cluster.",
+	"key":   "key is the key of the tag",
+	"value": "value is the value of the tag",
+}
+
+func (AWSUserTag) SwaggerDoc() map[string]string {
+	return map_AWSUserTag
 }
 
 var map_AzurePlatformSpec = map[string]string{
