@@ -301,6 +301,12 @@ type AWSPlatformSpec struct {
 	// There must be only one ServiceEndpoint for a service.
 	// +optional
 	ServiceEndpoints []AWSServiceEndpoint `json:"serviceEndpoints,omitempty"`
+
+	// userTags is a list of additional tags to apply to AWS resources created for the cluster. Changes made to userTags
+	// will not be reflected in existing AWS resources. The userTags are only applied to an AWS resource when the
+	// resource is created.
+	// +optional
+	UserTags []AWSUserTag `json:"userTags,omitempty"`
 }
 
 // AWSPlatformStatus holds the current status of the Amazon Web Services infrastructure provider.
@@ -313,6 +319,14 @@ type AWSPlatformStatus struct {
 	// There must be only one ServiceEndpoint for a service.
 	// +optional
 	ServiceEndpoints []AWSServiceEndpoint `json:"serviceEndpoints,omitempty"`
+}
+
+// AWSUserTag is a tag to apply to AWS resources created for the cluster.
+type AWSUserTag struct {
+	// key is the key of the tag
+	Key string `json:"key"`
+	// value is the value of the tag
+	Value string `json:"value"`
 }
 
 // AzurePlatformSpec holds the desired state of the Azure infrastructure provider.

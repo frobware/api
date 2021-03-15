@@ -99,6 +99,24 @@ spec:
                                 empty.
                               type: string
                               pattern: ^https://
+                      userTags:
+                        description: userTags is a list of additional tags to apply
+                          to AWS resources created for the cluster. Changes made to
+                          userTags will not be reflected in existing AWS resources.
+                          The userTags are only applied to an AWS resource when the
+                          resource is created.
+                        type: array
+                        items:
+                          description: AWSUserTag is a tag to apply to AWS resources
+                            created for the cluster.
+                          type: object
+                          properties:
+                            key:
+                              description: key is the key of the tag
+                              type: string
+                            value:
+                              description: value is the value of the tag
+                              type: string
                   azure:
                     description: Azure contains settings specific to the Azure infrastructure
                       provider.
